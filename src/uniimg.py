@@ -7,7 +7,7 @@ import sys
 import os
 import random
 import glob
-import cPickle
+import pickle
 import math
 from datetime import datetime
 
@@ -16,7 +16,7 @@ from models.vgg16 import VGG16
 from keras.optimizers import Adam
 from keras.callbacks import ModelCheckpoint
 from keras.preprocessing.image import ImageDataGenerator
-from scipy.misc import imread
+from cv2 import imread
 
 
 SPLIT_DIR = "data/perssplit"
