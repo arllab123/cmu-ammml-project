@@ -10,7 +10,7 @@ from keras.layers.convolutional import Convolution2D, MaxPooling2D,\
 
 def VGG16(weights_path=None, default_arch_weights=True):
     model = Sequential()
-    model.add(ZeroPadding2D((1,1),input_shape=(3,224,224),data_format="channels_first"))
+    model.add(ZeroPadding2D((1,1),input_shape=(224,224,3))
     model.add(Convolution2D(64, 3, 3, activation="relu",trainable=False))
     model.add(ZeroPadding2D((1,1)))
     model.add(Convolution2D(64, 3, 3, activation="relu",trainable=False))
