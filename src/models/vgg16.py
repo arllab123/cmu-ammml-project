@@ -14,7 +14,7 @@ def VGG16(weights_path=None, default_arch_weights=True):
     model.add(Convolution2D(64, 3, 3, activation="relu",trainable=False))
     model.add(ZeroPadding2D((1,1)))
     model.add(Convolution2D(64, 3, 3, activation="relu",trainable=False))
-    model.add(MaxPooling2D((2,2), strides=(2,2)))
+    model.add(MaxPooling2D((2,2), strides=(2,2),dim_ordering="tf"))
 
     model.add(ZeroPadding2D((1,1)))
     model.add(Convolution2D(128, 3, 3, activation="relu",trainable=False))
