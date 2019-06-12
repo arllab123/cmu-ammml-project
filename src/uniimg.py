@@ -191,7 +191,9 @@ if __name__=="__main__":
             save_best_only=False
         )
         history = model.fit_generator(
-            generator=train_generator,epochs=args.epochs,verbose=1,callbacks=[ckpt_clbk],validation_data=val_generator
+            generator=train_generator,epochs=args.epochs,
+            verbose=1,callbacks=[ckpt_clbk],validation_data=val_generator,
+            steps_per_epoch = 8
             )
 
     train_vid_acc, train_im_acc = eval_model(model, args.batch_size, "train",
