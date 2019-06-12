@@ -84,7 +84,7 @@ class RandomBatchGenerator(object):
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         batch_ims = random.sample(self._ims, self._batch_size)
         batch_X, batch_y = generate_batch(batch_ims)
         if self._datagen is None:
