@@ -173,8 +173,7 @@ if __name__=="__main__":
     default_arch_weights = args.default_arch_weights == "true"
     model = VGG16(args.vgg_weights, default_arch_weights)
     model.compile(optimizer=Adam(lr=args.lr, clipvalue=GRAD_CLIP),
-                  loss="binary_crossentropy",
-                  class_mode="binary")
+                  loss="binary_crossentropy")
     print("done")
 
     if args.train == "true":
