@@ -193,15 +193,11 @@ if __name__=="__main__":
         )
         history = model.fit_generator(
             generator=train_generator,
-            samples_per_epoch=len(train_generator._ims),
-            nb_epoch=args.epochs,
+            epochs=args.epochs,
             verbose=1,
-            show_accuracy=True,
             callbacks=[ckpt_clbk],
             validation_data=val_generator,
-            nb_val_samples=len(val_generator._ims) // 4,
-            nb_worker=1
-        )
+            )
 
     train_vid_acc, train_im_acc = eval_model(model, args.batch_size, "train",
                                             args.imdir)
