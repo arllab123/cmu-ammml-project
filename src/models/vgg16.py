@@ -64,18 +64,20 @@ def VGG16(weights_path=None, default_arch_weights=True):
 
     # HACK LEVEL: OVER 9000!!!
     layers = []
-    while model.layers:
-        layers.insert(0, model.layers.pop())
+    for i in range(len(model.layers)):
+        layers.append(model.layers[i])
+        print(model.layers[i])
+    model2 = Sequential()
     part_lens = [17, 14]
     layer_idx = 0
     for part_len in part_lens:
         for _ in range(part_len):
-            model.add(layers[layer_idx])
+            model2.add(layers[layer_idx])
             layer_idx += 1
-        model.add(Dropout(0.5))
+        model2.add(Dropout(0.5))
     while layer_idx < len(layers):
-        model.add(layers[layer_idx])
+        model2.add(layers[layer_idx])
         layer_idx += 1 
 
-    return model
+    return model2
 
